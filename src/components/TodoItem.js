@@ -3,13 +3,18 @@ import './TodoItem.css'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import { useDispatch } from 'react-redux'
-import { setCheck } from '../features/todoSlice'
+import { setCheck, removeTodo } from '../features/todoSlice'
+
 
 const TodoItem = ({ name, done, id }) => {
   const dispatch = useDispatch()
 
-  const handleCheck= () => {
+  const handleCheck = () => {
     dispatch(setCheck(id))
+  }
+
+  const handleRemoveTodo = () => {
+    dispatch(removeTodo(id))
   }
 
   return (
@@ -23,6 +28,7 @@ const TodoItem = ({ name, done, id }) => {
       />
 
       <p className={done && 'todoItem--done'}>{name}</p>
+      <button onClick={handleRemoveTodo}>Delete</button>
     </div>
   )
 }

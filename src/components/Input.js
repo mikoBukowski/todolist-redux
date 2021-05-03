@@ -18,10 +18,20 @@ const Input = () => {
     }))
   }
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      dispatch(saveTodo({
+        item: input,
+        done: false,
+        id: Date.now()
+      }))
+    }
+  }
+
   return (
     <div className='input'>
-      <input type="text" value={input} onChange={e=>setInput(e.target.value)}/>
-      <button onClick={addTodo}>Add!</button>
+      <input type="text" value={input} onChange={e=>setInput(e.target.value)} onKeyDown={handleKeyDown}/>
+      <button onClick={addTodo}>Add</button>
     </div>
   )
 }

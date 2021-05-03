@@ -15,3 +15,10 @@
 .todoItem--done{
   text-decoration: line-through;
 }
+
+.todoItem--remove {
+  display: block;
+  background-color: grey;
+  margin: 10px;
+  padding: 10px;
+}

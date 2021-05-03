@@ -22,11 +22,17 @@ const todoSlice = createSlice({
           }
         }
       })
+    },
+
+    removeTodo: (state, action) => {
+      console.log('delete item', action.payload)
+      
+      state.todoList.splice(NaN, 1) // deletes random todo
     }
   }
 });
 
-export const { saveTodo, setCheck } = todoSlice.actions
+export const { saveTodo, setCheck, removeTodo } = todoSlice.actions
 
 export const selectTodoList = state => state.todos.todoList
 
